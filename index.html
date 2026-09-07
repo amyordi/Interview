@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Next Best Hire is Waiting 💼</title>
+  <title>Strategic Talent Acquisition Protocol 💼</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body {
@@ -11,34 +12,54 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      background: radial-gradient(circle at 10% 20%, #e0f2fe 0%, #f0fdf4 90%);
       padding: 16px;
     }
     .card {
       background: #ffffff;
-      padding: 32px 24px;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      padding: 34px 24px;
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
       text-align: center;
       max-width: 440px;
       width: 100%;
+      animation: fadeIn 0.3s ease;
     }
-    img {
-      width: 170px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .meme-img {
+      width: 180px;
       height: 170px;
-      object-fit: contain;
-      margin-bottom: 16px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
     }
     h1 {
       font-size: 20px;
       color: #0f172a;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       line-height: 1.4;
+      font-weight: 800;
     }
     p.subtitle {
-      font-size: 14px;
+      font-size: 13.5px;
       color: #64748b;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .step-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2563eb;
+      background: #dbeafe;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .btn-group {
       display: flex;
@@ -46,125 +67,228 @@
       align-items: center;
       gap: 14px;
       position: relative;
-      min-height: 60px;
+      min-height: 70px;
     }
     button {
       padding: 12px 22px;
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 14.5px;
+      font-weight: 700;
       border: none;
       border-radius: 999px;
       cursor: pointer;
-      transition: transform 0.15s ease;
+      transition: transform 0.15s ease, background 0.2s ease;
     }
-    #btn-yes {
-      background-color: #2563eb;
+    .btn-primary {
+      background: #2563eb;
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
     }
+    .btn-primary:hover { background: #1d4ed8; }
     #btn-no {
       background-color: #f1f5f9;
       color: #64748b;
       position: relative;
+      user-select: none;
+      white-space: nowrap;
     }
-    #booking-screen { display: none; }
+    #step-2, #step-3, #step-success { display: none; }
     label {
       display: block;
       text-align: left;
       font-size: 13px;
       font-weight: 600;
       color: #334155;
-      margin: 14px 0 6px;
+      margin: 12px 0 5px;
     }
-    input, select {
+    input, select, textarea {
       width: 100%;
       padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      border: 1.5px solid #cbd5e1;
       font-size: 14px;
       outline: none;
+      background: #f8fafc;
+      color: #0f172a;
     }
-    #btn-submit {
-      margin-top: 22px;
+    input:focus, select:focus, textarea:focus {
+      border-color: #2563eb;
+      background: #fff;
+    }
+    .full-width {
+      margin-top: 18px;
       width: 100%;
-      background-color: #16a34a;
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
     }
   </style>
 </head>
 <body>
 
-  <!-- Screen 1: The Candidate Pitch -->
-  <div class="card" id="main-screen">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpqd2ZxdmVodmYxbnhueWRmMzI2ZzB5OWYzbXExanE4bGJicHJjayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" alt="Business Cat Candidate">
+  <!-- STEP 1: The Pitch -->
+  <div class="card" id="step-1">
+    <span class="step-badge">Stage 1/3: Candidate Inquiry</span>
+    <img class="meme-img" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3h2dWNwczk4eDlsZHVidmRhcnJkdnJ2b3RiaTVxazFob2lqN3l3OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/unQ3IJU2RG7DO/giphy.gif" alt="Typing Fast Cat">
     <h1>I reviewed your company.<br>Would you like to interview me?</h1>
-    <p class="subtitle">(Ghosting this applicant is currently out of service)</p>
+    <p class="subtitle">⚠️ Note: Rejecting this candidate is temporarily out of service due to high demand.</p>
     
     <div class="btn-group">
-      <button id="btn-yes">Send Interview Invite 🤝</button>
+      <button class="btn-primary" id="btn-yes">Send Interview Invite 💼</button>
       <button id="btn-no">Pass on top talent 📉</button>
     </div>
   </div>
 
-  <!-- Screen 2: Scheduling the Candidate -->
-  <div class="card" id="booking-screen">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajlzNzg2d2phZ2tueDVhcWJ1eWk1cXFpMnF0ejJvaGFwczk2c3RhNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/unQ3IJU2RG7DO/giphy.gif" alt="Typing Fast">
-    <h1>Excellent corporate decision! ☕</h1>
-    
-    <label for="interview-date">When does the hiring manager want to meet?</label>
-    <input type="date" id="interview-date">
+  <!-- STEP 2: Time & Venue -->
+  <div class="card" id="step-2">
+    <span class="step-badge">Stage 2/3: Logistics</span>
+    <img class="meme-img" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGwzdnVhaWNlcnczN2Z1d295ZjV3cWdyaGQyOTVnbnQ3NnVqejM2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Business Cat">
+    <h1>Excellent corporate move!</h1>
+    <p class="subtitle">Let's set the battlefield before competitors find me.</p>
 
-    <label for="interview-time">What time should I dress up for?</label>
-    <input type="time" id="interview-time">
+    <label for="interview-date">When can you handle my talent?</label>
+    <input type="date" id="interview-date" required>
 
-    <label for="interview-vibe">How are we running this round?</label>
-    <select id="interview-vibe">
-      <option value="Google Meet">Online Video Call (Virtual background ready)</option>
-      <option value="Office Coffee">On-site Coffee (I bring my best elevator pitch)</option>
-      <option value="Offer Direct">Skip right to the offer letter 🎉</option>
+    <label for="interview-time">Time slot (when brain works at 100%):</label>
+    <input type="time" id="interview-time" required>
+
+    <label for="interview-venue">Format of engagement:</label>
+    <select id="interview-venue">
+      <option value="Onsite with private room (Interrogation mode)">🏢 Onsite with private room (interrogation mode)</option>
+      <option value="Public outside / Coffee chat (Less stress, free drinks)">☕ Public outside / Coffee chat (caffeine bribe accepted)</option>
+      <option value="The Real Office (Show me the snack bar first)">🍕 The "Real" Office (show me the snack bar first)</option>
+      <option value="Google Meet (Business top, pajama bottom)">💻 Google Meet (shirt on top, pajama on bottom)</option>
     </select>
 
-    <button id="btn-submit">Confirm Invitation 📌</button>
+    <button class="btn-primary full-width" id="btn-next-stage">Proceed to Final Prep ➔</button>
+  </div>
+
+  <!-- STEP 3: Company Vibe Check & Submit -->
+  <div class="card" id="step-3">
+    <span class="step-badge">Stage 3/3: Recruiter Pre-Check</span>
+    <img class="meme-img" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjlsY2V2cTh3bzdxYWRicG12enI5Z2NndWVjaDJlNXpza3FmMW82aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8OYiY4m0X85K0Zz/giphy.gif" alt="Cat Reviewing">
+    <h1>Almost secured! 📋</h1>
+    <p class="subtitle">Final screening questions for the hiring team.</p>
+
+    <form id="final-form">
+      <label for="beverage">What beverage will be provided to the candidate?</label>
+      <select id="beverage" name="Beverage Offer">
+        <option value="Iced Oat Latte (Candidate Approved)">☕ Iced Oat Latte (top tier)</option>
+        <option value="Tap water (We run lean)">💧 Tap water (we run a lean startup)</option>
+        <option value="Boba / Milk Tea (Instant Hire)">🧋 Boba / Milk Tea (instant offer acceptance)</option>
+        <option value="High pressure and anxiety">⚡ Pure adrenaline and coffee</option>
+      </select>
+
+      <label for="notes">Message or offer terms for the candidate:</label>
+      <textarea id="notes" name="Recruiter Message" rows="2" placeholder="e.g. Please join us, our Jira board is on fire..."></textarea>
+
+      <button type="submit" class="btn-primary full-width" id="btn-submit" style="background: #16a34a;">Dispatch Formal Invitation 🚀</button>
+    </form>
+  </div>
+
+  <!-- STEP 4: Success Confirmed -->
+  <div class="card" id="step-success">
+    <img class="meme-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGk4azZqdzU4eWtvNHM0c2ZkYjF5eDF4cmh2d2FtcjE4NHFodWVpMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/artj92V8o75VPL7AeQ/giphy.gif" alt="Success Confetti Cat">
+    <h1>Invite Locked In! 🎉</h1>
+    <p class="subtitle" id="summary-msg">The candidate has officially received your invitation in their inbox.</p>
   </div>
 
   <script>
-    const btnNo = document.getElementById('btn-no');
-    const btnYes = document.getElementById('btn-yes');
-    const mainScreen = document.getElementById('main-screen');
-    const bookingScreen = document.getElementById('booking-screen');
-    const btnSubmit = document.getElementById('btn-submit');
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdeowowr";
 
-    function escapeCursor() {
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+    const stepSuccess = document.getElementById('step-success');
+
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+    const btnNext = document.getElementById('btn-next-stage');
+    const form = document.getElementById('final-form');
+    const submitBtn = document.getElementById('btn-submit');
+
+    // Hiệu ứng nút No nhảy né
+    const funnyTexts = [
+      "Pass on top talent 📉",
+      "Are you sure? 🤨",
+      "Budget approved though? 💸",
+      "Error: Talent too high 🛑",
+      "Just press Yes! 🚀"
+    ];
+    let textIndex = 0;
+
+    function dodgeButton() {
       const maxX = 120;
       const maxY = 70;
-      const randomX = (Math.random() - 0.5) * 2 * maxX;
-      const randomY = (Math.random() - 0.5) * 2 * maxY;
-      btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      const rx = (Math.random() - 0.5) * 2 * maxX;
+      const ry = (Math.random() - 0.5) * 2 * maxY;
+      btnNo.style.transform = `translate(${rx}px, ${ry}px)`;
+
+      textIndex = (textIndex + 1) % funnyTexts.length;
+      btnNo.innerText = funnyTexts[textIndex];
     }
 
-    btnNo.addEventListener('mouseenter', escapeCursor);
+    btnNo.addEventListener('mouseenter', dodgeButton);
     btnNo.addEventListener('touchstart', (e) => {
       e.preventDefault();
-      escapeCursor();
+      dodgeButton();
     });
 
+    // 1 -> 2
     btnYes.addEventListener('click', () => {
-      mainScreen.style.display = 'none';
-      bookingScreen.style.display = 'block';
+      confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+      step1.style.display = 'none';
+      step2.style.display = 'block';
     });
 
-    btnSubmit.addEventListener('click', () => {
-      const date = document.getElementById('interview-date').value;
-      const time = document.getElementById('interview-time').value;
-      const vibe = document.getElementById('interview-vibe').value;
+    // 2 -> 3
+    let selectedDate = "";
+    let selectedTime = "";
+    let selectedVenue = "";
 
-      if (!date || !time) {
-        alert('Please pick a date and time to secure this top talent! 📝');
+    btnNext.addEventListener('click', () => {
+      selectedDate = document.getElementById('interview-date').value;
+      selectedTime = document.getElementById('interview-time').value;
+      selectedVenue = document.getElementById('interview-venue').value;
+
+      if (!selectedDate || !selectedTime) {
+        alert("Please specify the date and time so the candidate can prepare! 😉");
         return;
       }
 
-      alert(`Interview booked for ${date} at ${time} via [${vibe}]! Please take a screenshot and send it to the candidate 🚀`);
+      step2.style.display = 'none';
+      step3.style.display = 'block';
+    });
+
+    // 3 -> Submit Formspree
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.innerText = "Transmitting to Candidate... 📡";
+      submitBtn.disabled = true;
+
+      const payload = new FormData(form);
+      payload.append("Interview Date", selectedDate);
+      payload.append("Interview Time", selectedTime);
+      payload.append("Venue Format", selectedVenue);
+
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: payload,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          step3.style.display = 'none';
+          stepSuccess.style.display = 'block';
+          document.getElementById('summary-msg').innerText = 
+            `Invite sent for ${selectedDate} at ${selectedTime} (${selectedVenue}). See you then!`;
+          confetti({ particleCount: 130, spread: 90, origin: { y: 0.5 } });
+          return;
+        }
+      } catch (error) {
+        console.error("Submission failed", error);
+      }
+
+      alert("Invite recorded! Looking forward to the interview session.");
+      step3.style.display = 'none';
+      stepSuccess.style.display = 'block';
     });
   </script>
 </body>
