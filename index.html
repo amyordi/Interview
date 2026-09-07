@@ -30,7 +30,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .meme-img {
-      width: 180px;
+      width: 190px;
       height: 170px;
       object-fit: cover;
       border-radius: 18px;
@@ -125,7 +125,7 @@
   <!-- STEP 1: The Pitch -->
   <div class="card" id="step-1">
     <span class="step-badge">Stage 1/3: Candidate Inquiry</span>
-    <img class="meme-img" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3h2dWNwczk4eDlsZHVidmRhcnJkdnJ2b3RiaTVxazFob2lqN3l3OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/unQ3IJU2RG7DO/giphy.gif" alt="Typing Fast Cat">
+    <img class="meme-img" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80" alt="Serious Cat Looking at You">
     <h1>I reviewed your company.<br>Would you like to interview me?</h1>
     <p class="subtitle">⚠️ Note: Rejecting this candidate is temporarily out of service due to high demand.</p>
     
@@ -138,7 +138,7 @@
   <!-- STEP 2: Time & Venue -->
   <div class="card" id="step-2">
     <span class="step-badge">Stage 2/3: Logistics</span>
-    <img class="meme-img" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGwzdnVhaWNlcnczN2Z1d295ZjV3cWdyaGQyOTVnbnQ3NnVqejM2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Business Cat">
+    <img class="meme-img" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=400&q=80" alt="Happy Cute Dog">
     <h1>Excellent corporate move!</h1>
     <p class="subtitle">Let's set the battlefield before competitors find me.</p>
 
@@ -162,7 +162,7 @@
   <!-- STEP 3: Company Vibe Check & Submit -->
   <div class="card" id="step-3">
     <span class="step-badge">Stage 3/3: Recruiter Pre-Check</span>
-    <img class="meme-img" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjlsY2V2cTh3bzdxYWRicG12enI5Z2NndWVjaDJlNXpza3FmMW82aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8OYiY4m0X85K0Zz/giphy.gif" alt="Cat Reviewing">
+    <img class="meme-img" src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=400&q=80" alt="Curious Cat">
     <h1>Almost secured! 📋</h1>
     <p class="subtitle">Final screening questions for the hiring team.</p>
 
@@ -184,7 +184,7 @@
 
   <!-- STEP 4: Success Confirmed -->
   <div class="card" id="step-success">
-    <img class="meme-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGk4azZqdzU4eWtvNHM0c2ZkYjF5eDF4cmh2d2FtcjE4NHFodWVpMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/artj92V8o75VPL7AeQ/giphy.gif" alt="Success Confetti Cat">
+    <img class="meme-img" src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=400&q=80" alt="Celebration Dog">
     <h1>Invite Locked In! 🎉</h1>
     <p class="subtitle" id="summary-msg">The candidate has officially received your invitation in their inbox.</p>
   </div>
@@ -203,7 +203,6 @@
     const form = document.getElementById('final-form');
     const submitBtn = document.getElementById('btn-submit');
 
-    // Hiệu ứng nút No nhảy né
     const funnyTexts = [
       "Pass on top talent 📉",
       "Are you sure? 🤨",
@@ -256,7 +255,7 @@
       step3.style.display = 'block';
     });
 
-    // 3 -> Submit Formspree
+    // 3 -> Submit
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.innerText = "Transmitting to Candidate... 📡";
