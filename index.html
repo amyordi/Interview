@@ -136,8 +136,8 @@
 
   <div class="card" id="step-2">
     <span class="step-badge">Stage 2/3: Logistics</span>
-    <img class="meme-img" src="https://i.giphy.com/media/unQ3IJU2RG7DO/giphy.gif" alt="Typing Fast Cat">
-    <h1>Excellent corporate move!</h1>
+    <img class="meme-img" src="https://i.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif" alt="Celebration Cat">
+    <h1>Excellent corporate move! 🎉</h1>
     <p class="subtitle">Let's set the battlefield before competitors find me.</p>
 
     <label for="interview-date">When can you handle my talent?</label>
@@ -225,14 +225,14 @@
       dodgeButton();
     });
 
-    // Chuyển từ Step 1 sang Step 2
+    // Chuyển sang Bước 2
     btnYes.addEventListener('click', () => {
       confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
       step1.style.display = 'none';
       step2.style.display = 'block';
     });
 
-    // Chuyển từ Step 2 sang Step 3
+    // Chuyển sang Bước 3
     let selectedDate = "";
     let selectedTime = "";
     let selectedVenue = "";
@@ -251,7 +251,7 @@
       step3.style.display = 'block';
     });
 
-    // Gửi dữ liệu về Formspree
+    // Submit gửi Formspree
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.innerText = "Transmitting to Candidate... 📡";
