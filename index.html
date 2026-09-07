@@ -30,7 +30,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .meme-img {
-      width: 190px;
+      width: 180px;
       height: 170px;
       object-fit: cover;
       border-radius: 18px;
@@ -122,11 +122,10 @@
 </head>
 <body>
 
-  <!-- STEP 1: The Pitch -->
   <div class="card" id="step-1">
     <span class="step-badge">Stage 1/3: Candidate Inquiry</span>
-    <img class="meme-img" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80" alt="Serious Cat Looking at You">
-    <h1>I reviewed your company.<br>Would you like to interview me?</h1>
+    <img class="meme-img" src="https://i.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Polite Scholar Cat">
+    <h1>I reviewed Alex's company.<br>Would you like to interview me?</h1>
     <p class="subtitle">⚠️ Note: Rejecting this candidate is temporarily out of service due to high demand.</p>
     
     <div class="btn-group">
@@ -135,10 +134,9 @@
     </div>
   </div>
 
-  <!-- STEP 2: Time & Venue -->
   <div class="card" id="step-2">
     <span class="step-badge">Stage 2/3: Logistics</span>
-    <img class="meme-img" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=400&q=80" alt="Happy Cute Dog">
+    <img class="meme-img" src="https://i.giphy.com/media/unQ3IJU2RG7DO/giphy.gif" alt="Typing Fast Cat">
     <h1>Excellent corporate move!</h1>
     <p class="subtitle">Let's set the battlefield before competitors find me.</p>
 
@@ -159,12 +157,11 @@
     <button class="btn-primary full-width" id="btn-next-stage">Proceed to Final Prep ➔</button>
   </div>
 
-  <!-- STEP 3: Company Vibe Check & Submit -->
   <div class="card" id="step-3">
     <span class="step-badge">Stage 3/3: Recruiter Pre-Check</span>
-    <img class="meme-img" src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=400&q=80" alt="Curious Cat">
+    <img class="meme-img" src="https://i.giphy.com/media/LmN8OYiY4m0X85K0Zz/giphy.gif" alt="Cat Reviewing">
     <h1>Almost secured! 📋</h1>
-    <p class="subtitle">Final screening questions for the hiring team.</p>
+    <p class="subtitle">Final screening questions for Alex's team.</p>
 
     <form id="final-form">
       <label for="beverage">What beverage will be provided to the candidate?</label>
@@ -176,15 +173,14 @@
       </select>
 
       <label for="notes">Message or offer terms for the candidate:</label>
-      <textarea id="notes" name="Recruiter Message" rows="2" placeholder="e.g. Please join us, our Jira board is on fire..."></textarea>
+      <textarea id="notes" name="Recruiter Message" rows="2" placeholder="e.g. Please join Alex's company, our Jira board is on fire..."></textarea>
 
       <button type="submit" class="btn-primary full-width" id="btn-submit" style="background: #16a34a;">Dispatch Formal Invitation 🚀</button>
     </form>
   </div>
 
-  <!-- STEP 4: Success Confirmed -->
   <div class="card" id="step-success">
-    <img class="meme-img" src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=400&q=80" alt="Celebration Dog">
+    <img class="meme-img" src="https://i.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif" alt="Success Confetti Cat">
     <h1>Invite Locked In! 🎉</h1>
     <p class="subtitle" id="summary-msg">The candidate has officially received your invitation in their inbox.</p>
   </div>
@@ -203,9 +199,10 @@
     const form = document.getElementById('final-form');
     const submitBtn = document.getElementById('btn-submit');
 
+    // Hiệu ứng nút No nhảy né
     const funnyTexts = [
       "Pass on top talent 📉",
-      "Are you sure? 🤨",
+      "Are you sure, Alex? 🤨",
       "Budget approved though? 💸",
       "Error: Talent too high 🛑",
       "Just press Yes! 🚀"
@@ -255,7 +252,7 @@
       step3.style.display = 'block';
     });
 
-    // 3 -> Submit
+    // 3 -> Submit Formspree
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.innerText = "Transmitting to Candidate... 📡";
